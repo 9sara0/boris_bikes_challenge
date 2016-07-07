@@ -1,12 +1,11 @@
-*Objects	        *Messages
-Person
-Bike	             working?
-DockingStation	   release_bike
+1.*Objects	        
+  1.Person
+  2.Bike	             
+  3.DockingStation	   
+2.*Messages
+  1.working?
+  2.release_bike
 
-Bike <-- working? --> true/false
+
+Bike <-- working? --> true/false |
 DockingStation <-- release_bike --> a Bike
-| Objects        | Messages           |
-| ------------- |:-------------:|
-| col 3 is      | right-aligned |
-| col 2 is      | centered      |
-| zebra stripes | are neat      |
