@@ -7,13 +7,6 @@ describe DockingStation do
     expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
   end
 
-  it 'checks bike is working?' do
-    bike = Bike.new
-    expect(bike).to be_working
-  end
-
-
-
   it { is_expected.to respond_to(:dock).with(1).argument }
 
   it { is_expected.to respond_to :bikes }
