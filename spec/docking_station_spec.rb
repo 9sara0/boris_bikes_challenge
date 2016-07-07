@@ -16,10 +16,10 @@ describe DockingStation do
     it 'docks a bike' do
       bike = Bike.new
       subject.dock(bike)
-      expect(subject.bikes).to eq [bike]
+      expect(subject.bikes).to include(bike)
     end
     it 'raises an error' do
-      20.times { subject.dock Bike.new }
+      DockingStation::DEFAULT_CAPACITY.times { subject.dock Bike.new }
       expect { subject.dock(Bike.new) }.to raise_error('There is no room to dock a bike')
     end
   end
