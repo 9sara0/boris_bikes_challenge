@@ -1,3 +1,4 @@
+require_relative 'bike'
 class DockingStation
   DEFAULT_CAPACITY = 20
 
@@ -13,8 +14,13 @@ class DockingStation
   attr_reader :bikes
 
   def release_bike
-    raise 'No bikes available' if empty?
-    @bikes.pop
+    if empty?
+      raise 'No bikes available'
+    elsif is_broken?
+      raise 'Bike is broken'
+    else
+      @bikes.pop
+    end
   end
 
   def dock(bike)
@@ -31,4 +37,10 @@ class DockingStation
   def full?
     @bikes.length >= DEFAULT_CAPACITY
   end
+
+  def is_broken?
+    @bikes.last.broken?
+  end
+
+
 end

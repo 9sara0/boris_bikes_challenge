@@ -17,6 +17,7 @@ describe DockingStation do
       subject.dock(bike)
       expect(subject.bikes).to include(bike)
     end
+
     it 'raises an error' do
       subject.capacity.times { subject.dock Bike.new }
       expect { subject.dock(Bike.new) }.to raise_error('There is no room to dock a bike')
@@ -24,6 +25,7 @@ describe DockingStation do
   end
 
   describe '#release_bike' do
+
     it 'releases a bike' do
       bike = Bike.new
       subject.dock(bike)
@@ -32,5 +34,13 @@ describe DockingStation do
     it 'raises an error' do
       expect { subject.release_bike }.to raise_error('No bikes available')
     end
+
+    it 'raises bike is broken error' do
+      bike = Bike.new
+      bike.report_broken
+      subject.dock(bike)
+      expect { subject.release_bike }.to raise_error('Bike is broken')
+    end
+
   end
 end
