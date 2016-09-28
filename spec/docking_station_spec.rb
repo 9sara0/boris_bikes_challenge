@@ -20,7 +20,6 @@ describe DockingStation do
 
   describe "#release_bike" do
     it "Releases a working bike" do
-      bike = Bike.new
       docking_station.dock(bike)
       expect(docking_station.release_bike).to eq bike
     end
@@ -31,13 +30,21 @@ describe DockingStation do
   end
 
   describe "#dock" do
-    it "docks a bike" do
-      bike = Bike.new
-      docking_station.dock(bike)
-      expect(docking_station.bikes).to include bike
+
+    context 'accept returning a ' do
+      it "working bike" do
+        docking_station.dock(bike)
+        expect(docking_station.bikes).to include bike
+      end
+
+      it 'broken bikes' do
+        bike.report_broken
+        docking_station.dock(bike)
+        expect(docking_station.bikes).to include bike
+      end
     end
 
-    # assuming a max capacity of 20 bike
+    # assuming a default capacity of 20 bike
     it 'raises an error when full' do
       docking_station.capacity.times { docking_station.dock(Bike.new) }
       expect { docking_station.dock Bike.new }.to raise_error 'Docking station full'
