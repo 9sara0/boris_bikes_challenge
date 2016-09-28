@@ -13,7 +13,7 @@ class DockingStation
 
   def release_bike
     raise 'No bikes available' if empty?
-    raise 'Bike is broken'     if ! bikes.last.working?
+    raise 'Bike is broken'     if broken?
     @bikes.pop
   end
 
@@ -30,6 +30,10 @@ class DockingStation
 
   def full?
     @bikes.count >= @capacity
+  end
+
+  def broken?
+    !bikes.last.working?
   end
 
 end
