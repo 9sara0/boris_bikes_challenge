@@ -4,7 +4,7 @@ require 'docking_station'
 describe DockingStation do
 
   subject(:docking_station) { described_class.new }
-  let(:bike) { Bike.new }
+  let(:bike) { double :bike }
 
   describe "initialization" do
     it 'default capacity' do
@@ -20,12 +20,13 @@ describe DockingStation do
 
   describe "#release_bike" do
     it "Releases a working bike" do
+      allow(bike).to receive(:working?).and_return(true)
       docking_station.dock(bike)
       expect(docking_station.release_bike).to eq bike
     end
 
     it 'Raises an error releasing a broken bike' do
-      bike.report_broken
+      allow(bike).to receive(:working?).and_return(false)
       docking_station.dock(bike)
       expect{docking_station.release_bike}.to raise_error 'Bike is broken'
     end
@@ -44,7 +45,7 @@ describe DockingStation do
       end
 
       it 'broken bikes' do
-        bike.report_broken
+        allow(bike).to receive(:report_broken).and_return(false)
         docking_station.dock(bike)
         expect(docking_station.bikes).to include bike
       end
