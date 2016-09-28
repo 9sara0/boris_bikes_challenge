@@ -24,6 +24,12 @@ describe DockingStation do
       expect(docking_station.release_bike).to eq bike
     end
 
+    it 'Raises an error releasing a broken bike' do
+      bike.report_broken
+      docking_station.dock(bike)
+      expect{docking_station.release_bike}.to raise_error 'Bike is broken'
+    end
+
     it "Raises an error when no bikes available" do
       expect{docking_station.release_bike}.to raise_error 'No bikes available'
     end
