@@ -11,6 +11,10 @@ I'd like a docking station to release a bike.
 As a person,
 So that I can use a good bike,
 I'd like to see if a bike is working
+
+As a member of the public,
+So that I am not confused and charged unnecessarily,
+I'd like docking stations not to release bikes when there are none available.
 ```
 **Feature#2:** Return a Bike to a DockingStation and view docked Bikes
 
@@ -28,7 +32,7 @@ I want to see a bike that has been docked
 objects|Messages|
 -------|--------|
 Person|
-DockingStation| release_bike
+DockingStation| release_bike, dock(bike)
 Bike| working?
 
 
