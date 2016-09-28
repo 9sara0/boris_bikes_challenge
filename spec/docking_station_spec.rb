@@ -21,4 +21,13 @@ describe "#release_bike" do
   end
 end
 
+
+describe "#dock" do
+  # assuming a max capacity of 1 bike
+  it 'raises an error when full' do
+    subject.dock(Bike.new)
+    expect { subject.dock Bike.new }.to raise_error 'Docking station full'
+  end
+end
+
 end
