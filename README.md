@@ -2,7 +2,7 @@
 This is week#1 project from Makers Academy. This challenge script allows you to run all the Docking Stations, simulate all the Bikes, and emulate all the infrastructure (vans, repair staff, and so on) required to make their dream a reality.
 
 ## User Stories
-**Feature#1:** Release a working Bike from a DockingStation
+**Feature#1:** Release a working Bike from a DockingStation. A new DockingStation should start empty.
 ```
 As a person,
 So that I can use a bike,
