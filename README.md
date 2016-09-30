@@ -74,10 +74,5 @@ objects|Messages|
 Person|
 DockingStation| release_bike, dock(bike)
 Bike| working?
-Van| load, unload
-Garage| receive, fix, send
-
-
-## Digram
-Bike <-- working? --> true/false
-DockingStation <-- release_bike --> a Bike
+Van| load_bikes, unload_bikes
+Garage| receive_bike, fix, send_bike
