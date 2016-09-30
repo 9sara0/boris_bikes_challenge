@@ -1,5 +1,4 @@
 require_relative 'bike'
-
 class DockingStation
   include BikeContainer
 
@@ -18,5 +17,4 @@ class DockingStation
   def working_bikes
     bikes.reject {|bike| !bike.working?}
   end
-
 end

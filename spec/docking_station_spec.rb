@@ -26,5 +26,4 @@ describe DockingStation do
       expect{docking_station.release_bike}.to raise_error 'No bikes available'
     end
   end
-
 end

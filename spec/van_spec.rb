@@ -8,8 +8,6 @@ describe Van do
 
   it_behaves_like BikeContainer
 
-
-
   describe "#transfer" do
 
     it "loads a bike" do
@@ -31,6 +29,5 @@ describe Van do
         van.transfer(bike, station)
       end
     end
-
   end
 end

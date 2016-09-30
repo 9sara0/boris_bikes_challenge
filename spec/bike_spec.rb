@@ -1,4 +1,5 @@
 require 'bike'
+
 describe Bike do
   subject(:bike) { described_class.new }
 
@@ -22,5 +23,4 @@ describe Bike do
       expect(bike).to be_working
     end
   end
-
 end
