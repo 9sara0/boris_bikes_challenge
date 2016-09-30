@@ -74,5 +74,5 @@ objects|Messages|
 Person|
 DockingStation| release_bike, dock(bike)
 Bike| working?
-Van| load, unload
-Garage| receive, fix, send
+Van| load_bikes, unload_bikes
+Garage| receive_bike, fix, send_bike

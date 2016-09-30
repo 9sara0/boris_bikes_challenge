@@ -14,4 +14,13 @@ describe Bike do
     bike.report_broken
     expect(bike).not_to be_working
   end
+
+  describe "#fix" do
+    it "it tunrns a broken bike into a working bike" do
+      bike.report_broken
+      bike.fix
+      expect(bike).to be_working
+    end
+  end
+
 end
