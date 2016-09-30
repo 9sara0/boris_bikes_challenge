@@ -1,19 +1,18 @@
 require 'bike'
 
 describe Bike do
-  it { is_expected.to respond_to :broken? }
+  subject(:bike) { described_class.new }
 
-  it { is_expected.to respond_to :report_broken }
+  describe "upon initialization" do
+    it 'is always working' do
+      expect(bike).to be_working
+    end
+  end
 
-  describe '#broken?' do
-    it 'checks bike is broken?' do
-      bike = Bike.new
-      expect(bike).not_to be_broken
-    end
-    it 'checks the bike is broken' do
-      bike = Bike.new
-      bike.report_broken
-      expect(bike).to be_broken
-    end
+  it { is_expected.to respond_to :working? }
+
+  it 'can be reported as a broken bike' do
+    bike.report_broken
+    expect(bike).not_to be_working
   end
 end
