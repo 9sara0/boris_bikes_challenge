@@ -6,9 +6,6 @@ describe Garage do
 
   subject(:garage) { described_class.new }
   let(:bike)       { double :bike }
-  # before(:each)    { garage.receive_bike bike }
-  # before(:each)    { garage.receive_bike bike }
-
 
   it "fixes broken bikes" do
     garage.receive_bike bike
@@ -32,6 +29,5 @@ describe Garage do
       garage.send_bike(bike, van, station)
     end
   end
-
 
 end

@@ -18,5 +18,4 @@ class Garage
     van.transfer(bike, station)
   end
 
-
 end
