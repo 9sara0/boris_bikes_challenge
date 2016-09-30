@@ -13,8 +13,10 @@ class Garage
     bike.fix
   end
 
-  def send_bike(bike, station)
-    station.dock(bike)
+  def send_bike(bike, van, station)
+    bikes.delete bike
+    van.transfer(bike, station)
   end
+
 
 end

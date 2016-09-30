@@ -5,7 +5,9 @@ describe Garage do
   it_behaves_like BikeContainer
 
   subject(:garage) { described_class.new }
-  let(:bike) { double :bike }
+  let(:bike)       { double :bike }
+  # before(:each)    { garage.receive_bike bike }
+  # before(:each)    { garage.receive_bike bike }
 
 
   it "fixes broken bikes" do
@@ -15,11 +17,19 @@ describe Garage do
   end
 
   describe "send_bike" do
+    let(:van)     { double :van }
     let(:station) { double :station }
+    before(:each)    { garage.receive_bike bike }
 
-    it "sendes a fixed bike back to its DockingStation" do
-      expect(station).to receive(:dock)
-      garage.send_bike(bike, station)
+    it "removes the bike form the garage" do
+      allow(van).to receive(:transfer)
+      garage.send_bike(bike, van, station)
+      expect(garage).to be_empty
+    end
+
+    it "calls a van to take the bike to its station" do
+      expect(van).to receive(:transfer).with(bike, station)
+      garage.send_bike(bike, van, station)
     end
   end
 
